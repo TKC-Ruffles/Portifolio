@@ -171,52 +171,6 @@
             transform: translateY(-5px);
         }
 
-        /* Formulário de Upload */
-        .upload-form {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .upload-form input[type="file"] {
-            display: none;
-        }
-
-        .upload-form label {
-            display: block;
-            background: var(--secondary);
-            color: var(--primary);
-            padding: 1rem;
-            text-align: center;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .upload-form label:hover {
-            background: #52d1a1;
-        }
-
-        .upload-form button {
-            display: block;
-            width: 100%;
-            background: var(--accent);
-            color: var(--text);
-            padding: 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 1rem;
-        }
-
-        .upload-form button:hover {
-            background: #e668a3;
-        }
-
         /* Responsivo */
         @media (max-width: 768px) {
             .hero h1 {
@@ -354,18 +308,6 @@
                         <p>Portfólio completo no Linktree</p>
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Seção Upload de Arquivos -->
-        <section class="section" id="upload">
-            <div class="container">
-                <h2>Upload de Arquivos</h2>
-                <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
-                    <label for="fileInput">Escolher Arquivo</label>
-                    <input type="file" id="fileInput" name="file" required>
-                    <button type="submit">Enviar Arquivo</button>
-                </form>
             </div>
         </section>
     </main>
