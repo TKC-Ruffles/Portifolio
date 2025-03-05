@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafaella Cavaglieri | Design Gótico Minimalista</title>
+    <meta name="description" content="Portfólio profissional com estética gótica minimalista">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A192F;
+            --secondary: #64FFDA;
+            --accent: #FF79C6;
+            --text: #CCD6F6;
+            --bg: #020C1B;
+            --card-bg: rgba(100, 255, 218, 0.05);
+            --border: rgba(100, 255, 218, 0.1);
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header Estilizado */
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            padding: 1rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--secondary);
+            text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white; /* Texto branco */
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary); /* Cor de hover */
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Seção Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            background: linear-gradient(45deg, var(--primary) 0%, rgba(10, 25, 47, 0.9) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--text) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Seção Sobre */
+        #about .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .about-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        /* Experiência Profissional */
+        .timeline-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        /* Habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            color: white; /* Título em branco */
+        }
+
+        .skill-category ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skill-category ul li {
+            color: white; /* Texto em branco */
+            margin-bottom: 0.5rem;
+        }
+
+        /* Portfólio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+            color: white; /* Texto em branco */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Formulário de Upload */
+        .upload-form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .upload-form input[type="file"] {
+            display: none;
+        }
+
+        .upload-form label {
+            display: block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .upload-form label:hover {
+            background: #52d1a1;
+        }
+
+        .upload-form button {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: var(--text);
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .upload-form button:hover {
+            background: #e668a3;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 2rem;
+                transition: 0.3s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                font-size: 1.5rem;
+                color: var(--text);
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">Rafaella Cavaglieri</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">Sobre</a>
+                <a href="#experience">Experiência</a>
+                <a href="#skills">Habilidades</a>
+                <a href="#portfolio">Portfólio</a>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/http.tkc" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/rafaella-cavaglieri-58a3101a4" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/TKC-Ruffles" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Design & Estratégia Digital</h1>
+                <p>Transformando conceitos em experiências visuais impactantes</p>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section class="section" id="about">
+            <div class="container">
+                <h2>Sobre Mim</h2>
+                <div class="about-content">
+                    <p>📍 São Carlos, SP | 📧 rafacavaglieri@outlook.com | 📞 (16) 99748-0302</p>
+                    <p>Designer gráfico e especialista em mídias sociais com 5+ anos de experiência. Domínio completo do ciclo de criação visual: desde concepção de identidades visuais até gestão de campanhas digitais. Atuo na intersecção entre design criativo e análise de dados para otimização de resultados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Experiência -->
+        <section class="section" id="experience">
+            <div class="container">
+                <h2>Experiência Profissional</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>SPGeo | Designer Sênior (2023 - Atual)</h3>
+                        <ul>
+                            <li>Gestão completa da identidade visual da marca</li>
+                            <li>Criação de campanhas para mídias sociais (+150% engajamento)</li>
+                            <li>Desenvolvimento de layouts para materiais institucionais</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Designer Freelancer (2020 - 2023)</h3>
+                        <ul>
+                            <li>Criação de identidades visuais para 20+ clientes</li>
+                            <li>Gestão de tráfego pago (ROI médio de 3.8x)</li>
+                            <li>Produção de conteúdo visual para redes sociais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Habilidades -->
+        <section class="section" id="skills">
+            <div class="container">
+                <h2>Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Design</h3>
+                        <ul>
+                            <li>Photoshop</li>
+                            <li>Illustrator</li>
+                            <li>Figma</li>
+                            <li>Corel Draw</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Inteligência Artificial</h3>
+                        <ul>
+                            <li>Midjourney</li>
+                            <li>DALL-E</li>
+                            <li>ChatGPT</li>
+                            <li>Deepseek</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Portfólio -->
+        <section class="section" id="portfolio">
+            <div class="container">
+                <h2>Portfólio</h2>
+                <div class="portfolio-grid">
+                    <a href="https://www.instagram.com/spgeo" class="project-card" target="_blank">
+                        <h3>SPGeo Instagram</h3>
+                        <p>Gestão completa do perfil corporativo</p>
+                    </a>
+                    <a href="https://linktr.ee/qr/77a61ee2-6583-43fa-84ae-64c3cd4a3bef" class="project-card" target="_blank">
+                        <h3>Projetos Pessoais</h3>
+                        <p>Portfólio completo no Linktree</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Upload de Arquivos -->
+        <section class="section" id="upload">
+            <div class="container">
+                <h2>Upload de Arquivos</h2>
+                <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+                    <label for="fileInput">Escolher Arquivo</label>
+                    <input type="file" id="fileInput" name="file" required>
+                    <button type="submit">Enviar Arquivo</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Menu Mobile
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Scroll Suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
